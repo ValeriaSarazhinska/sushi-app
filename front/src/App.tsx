@@ -2,7 +2,7 @@
 
 export const App = () => {
   return (
-      <h1>Sushi App</h1>
+      <h1 className="fond-bold text-3xl text-red-500">Sushi App</h1>
   );
 }
 
