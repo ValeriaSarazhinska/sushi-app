@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "image": "yamamoto.jpeg",
+    "weight": 365,
+    "title": "Yamamoto",
+    "ingredients": "salmon, nori, rice, cream cheese, avocado, caviar, shrimp, snow crab",
+    "price": 500
+  },
+  {
+    "id": 2,
+    "image": "canada.jpeg",
+    "weight": 520,
+    "title": "Canada",
+    "ingredients": "salmon, nori, rice, cream cheese, unagi sauce, eel, avocado, cuttlefish ink",
+    "price": 325
+  },
+  {
+    "id": 3,
+    "image": "golden-dragon.jpeg",
+    "weight": 320,
+    "title": "Golden Dragon",
+    "ingredients": "nori, rice, unagi sauce, eel, tuna, avocado, caviar, japanese tamago omelette",
+    "price": 590
+  },
+  {
+    "id": 4,
+    "image": "mikasa.jpeg",
+    "weight": 330,
+    "title": "Mikasa",
+    "ingredients": "salmon, nori, rice, cream cheese, avocado, caviar",
+    "price": 440
+  },
+  {
+    "id": 5,
+    "image": "tuna.jpeg",
+    "weight": 310,
+    "title": "Tuna",
+    "ingredients": "nori, cucumber, rice, cream cheese, tuna",
+    "price": 400
+  },
+  {
+    "id": 6,
+    "image": "osaka.jpeg",
+    "weight": 295,
+    "title": "Osaka",
+    "ingredients": "nori, rice, cream cheese, avocado, caviar, snow crab, cuttlefish ink, japanese tamago",
+    "price": 380
+  },
+  {
+    "id": 7,
+    "image": "tiger-dragon.jpeg",
+    "weight": 325,
+    "title": "Tiger dragon",
+    "ingredients": " nori, rice, unagi sauce, avocado, caviar, shrimp, snow crab, peanut sauce",
+    "price": 440
+  },
+  {
+    "id": 8,
+    "image": "enigma.jpeg",
+    "weight": 295,
+    "title": "Enigma",
+    "ingredients": " nori, rice, cream cheese, unagi sauce, tuna, avocado, mango, japanese tamago",
+    "price": 350
+  },
+  {
+    "id": 9,
+    "image": "keanu.jpeg",
+    "weight": 310,
+    "title": "Keanu",
+    "ingredients": "salmon, nori, cucumber, rice, cream cheese, eel, tuna, shrimp, snow crab, japanese",
+    "price": 410
+  }
+]
