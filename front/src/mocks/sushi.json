@@ -10,10 +10,10 @@
   {
     "id": 2,
     "image": "canada.jpeg",
-    "weight": 520,
+    "weight": 325,
     "title": "Canada",
     "ingredients": "salmon, nori, rice, cream cheese, unagi sauce, eel, avocado, cuttlefish ink",
-    "price": 325
+    "price": 520
   },
   {
     "id": 3,
@@ -52,7 +52,7 @@
     "image": "tiger-dragon.jpeg",
     "weight": 325,
     "title": "Tiger dragon",
-    "ingredients": " nori, rice, unagi sauce, avocado, caviar, shrimp, snow crab, peanut sauce",
+    "ingredients": "nori, rice, unagi sauce, avocado, caviar, shrimp, snow crab, peanut sauce",
     "price": 440
   },
   {
@@ -60,7 +60,7 @@
     "image": "enigma.jpeg",
     "weight": 295,
     "title": "Enigma",
-    "ingredients": " nori, rice, cream cheese, unagi sauce, tuna, avocado, mango, japanese tamago",
+    "ingredients": "nori, rice, cream cheese, unagi sauce, tuna, avocado, mango, japanese tamago",
     "price": 350
   },
   {
@@ -70,5 +70,111 @@
     "title": "Keanu",
     "ingredients": "salmon, nori, cucumber, rice, cream cheese, eel, tuna, shrimp, snow crab, japanese",
     "price": 410
-  }
+  },
+  {
+    "id": 10,
+    "image": "fukuro.jpeg",
+    "weight": 320,
+    "title": "Fukuro",
+    "ingredients": "salmon, nori, rice, unagi sauce, avocado, snow crab, pistachios, goose pate, cane",
+    "price": 400
+  } , {
+    "id": 11,
+    "image": "california.jpeg",
+    "weight": 290,
+    "title": "California",
+    "ingredients": "salmon, nori, cucumber, rice, avocado, caviar",
+    "price": 470
+  },{
+    "id": 12,
+    "image": "hokage.jpeg",
+    "weight": 285,
+    "title": "Hokage",
+    "ingredients": "salmon, nori, rice, caviar, shrimp, snow crab",
+    "price": 535
+  },{
+    "id": 13,
+    "image": "watsumoto-grill.jpeg",
+    "weight": 335,
+    "title": "Matsumoto grill",
+    "ingredients": "salmon, nori, rice, unagi sauce, eel, caviar, green onions, processed cheese",
+    "price": 555
+  },{
+    "id": 14,
+    "image": "futo-spice.jpeg",
+    "weight": 250,
+    "title": "Futo spice",
+    "ingredients": "salmon, nori, rice, sesame, avocado, caviar, spicy sauce, sriracha sauce",
+    "price": 335
+},{
+    "id": 15,
+    "image": "alaska.jpeg",
+    "weight": 310,
+    "title": "Alaska",
+    "ingredients": "salmon, nori, cucumber, rice, cream cheese, caviar",
+    "price": 415
+},{
+    "id": 16,
+    "image": "red-dragon.jpeg",
+    "weight": 325,
+    "title": "Red Dragon",
+    "ingredients": "salmon, nori, rice, eel, avocado, caviar, japanese tamago omelette",
+    "price": 530
+},{
+    "id": 17,
+    "image": "himawari.jpeg",
+    "weight": 330,
+    "title": "Himawari",
+    "ingredients": "salmon, nori, rice, unagi sauce, shrimp, cuttlefish ink, parmesan cheese, cheddar",
+    "price": 390
+},{
+    "id": 18,
+    "image": "baked-spicy-shrimp.jpeg",
+    "weight": 350,
+    "title": "Baked Spicy Shrimp",
+    "ingredients": "nori, rice, cream cheese, avocado, caviar, shrimp, sriracha sauce, japanese mayonnaise,",
+    "price": 435
+},{
+    "id": 19,
+    "image": "felix-shrimp.jpeg",
+    "weight": 330,
+    "title": "Felix shrimp",
+    "ingredients": "nori, rice, cream cheese, avocado, caviar, iceberg lettuce, shrimp, sriracha sauce, japanese",
+    "price": 440
+},{
+    "id": 20,
+    "image": "baked-eel.jpeg",
+    "weight": 325,
+    "title": "Baked eel",
+    "ingredients": "nori, rice, cream cheese, sesame, eel, avocado, cheese cap",
+    "price": 420
+},{
+    "id": 21,
+    "image": "spicy-appetito.jpeg",
+    "weight": 300,
+    "title": "Spicy Appetito",
+    "ingredients": "salmon, nori, rice, cream cheese, caviar, snow crab, japanese tamago omelette",
+    "price": 385
+},{
+  "id": 22,
+  "image": "kasumi.jpeg",
+  "weight": 185,
+  "title": "Kasumi",
+  "ingredients": "salmon, cucumber, rice, japanese mayonnaise, mamenori",
+  "price": 320
+},{
+    "id": 23,
+    "image": "levy.jpeg",
+    "weight": 235,
+    "title": "Levy",
+    "ingredients": "salmon, rice, cream cheese, caviar, mamenori",
+    "price": 360
+},{
+    "id": 23,
+    "image": "yagami.jpeg",
+    "weight": 185,
+    "title": "Yagami",
+    "ingredients": "salmon, rice, avocado, japanese mayonnaise, mamenori",
+    "price": 340
+}
 ]
