@@ -1,0 +1,15 @@
+{
+  "name": "hasura",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "hasura console"
+  },
+  "devDependencies": {
+    "hasura-cli": "^2.20.0"
+  },
+  "dependencies": {
+    "graphql": "^16.6.0",
+    "ra-data-hasura": "^0.5.5"
+  }
+}
