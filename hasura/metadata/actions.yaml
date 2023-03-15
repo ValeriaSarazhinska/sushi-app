@@ -1,6 +1,14 @@
-actions: []
+actions:
+  - name: register
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:8888/.netlify/functions/register
+      forward_client_headers: true
+    comment: Admin registration
 custom_types:
   enums: []
-  input_objects: []
-  objects: []
+  input_objects:
+    - name: AdminRegisterInput
+  objects:
+    - name: AdminRegisterOutput
   scalars: []

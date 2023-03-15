@@ -1,4 +1,4 @@
-import { Datagrid, List, NumberField, TextField } from 'react-admin';
+import {Datagrid, List, NumberField, TextField} from "react-admin";
 
 export const MenuList = () => (
     <List>
@@ -7,4 +7,4 @@ export const MenuList = () => (
             <NumberField source="price" />
         </Datagrid>
     </List>
-);
+)

@@ -1,0 +1,12 @@
+{
+  "name": "sarverless",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "netlify dev"
+  },
+  "dependencies": {
+    "@netlify/functions": "^1.4.0",
+    "netlify-cli": "^13.1.6"
+  }
+}
