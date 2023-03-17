@@ -1,8 +1,0 @@
-{
-  "version": 3,
-  "sources": ["netlify/functions/hello.ts"],
-  "sourceRoot": "C:/Users/Valeria/AppData/Local/Temp/tmp-10308-wwZ9sQD8tLih",
-  "sourcesContent": ["import { Handler, HandlerEvent, HandlerContext } from \"@netlify/functions\";\r\n\r\nconst handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {\r\n    return {\r\n        statusCode: 200,\r\n        body: JSON.stringify({ message: \"Hello World\" }),\r\n    };\r\n};\r\n\r\nexport { handler };"],
-  "mappings": ";;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA,IAAM,UAAmB,OAAO,OAAqB,YAA4B;AAC7E,SAAO;AAAA,IACH,YAAY;AAAA,IACZ,MAAM,KAAK,UAAU,EAAE,SAAS,cAAc,CAAC;AAAA,EACnD;AACJ;",
-  "names": []
-}
