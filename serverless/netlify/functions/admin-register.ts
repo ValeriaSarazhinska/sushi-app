@@ -10,11 +10,20 @@ interface AdminRegsiterInput {
 }
 
 const handler: Handler = async (event, context) => {
-  const { body } = event;
+  const { body, headers } = event;
   const input: AdminRegsiterInput = JSON.parse(body!).input.admin;
   const sdk = getSdk(new GraphQLClient('http://localhost:8080/v1/graphql'));
 
-  const password = crypto
+  if(!headers['x-sushiapp-secret-key'] ||
+      headers['x-sushiapp-secret-key'] !== 'mysushiappsecretkey'){
+    return {
+      statusCode: 403,
+      body: JSON.stringify({ message: "'x-sushiapp-secret-key' is missing or value is invalid"}),
+    };
+  }
+
+
+    const password = crypto
     .pbkdf2Sync(input.password, 'mygreatsaltsecret', 1000, 64, 'sha512')
     .toString('hex');
 
@@ -28,7 +37,7 @@ const handler: Handler = async (event, context) => {
       'https://hasura.io/jwt/claims': {
         'x-hasura-allowed-roles': ['admin'],
         'x-hasura-default-role': 'admin',
-        'x-hasura-user-id': data.insert_admin?.returning[0].id,
+        'x-hasura-user-id': data.insert_admin_one?.id,
       },
     },
     'mygreatjwtsecret'
