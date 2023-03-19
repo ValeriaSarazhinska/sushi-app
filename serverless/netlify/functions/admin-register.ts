@@ -1,47 +1,32 @@
-import { Handler } from '@netlify/functions';
-import { GraphQLClient } from 'graphql-request';
-import jwt from 'jsonwebtoken';
-import crypto from 'crypto';
-import { getSdk } from '../common/sdk';
-
-interface AdminRegsiterInput {
-  username: string;
-  password: string;
-}
+import {Handler} from '@netlify/functions';
+import {hashPassword} from "../common/password";
+import {sighToken} from "../common/jwt";
+import {api} from "../common/api";
+import {AdminRegisterInput} from '../common/sdk'
 
 const handler: Handler = async (event, context) => {
   const { body, headers } = event;
-  const input: AdminRegsiterInput = JSON.parse(body!).input.admin;
-  const sdk = getSdk(new GraphQLClient('http://localhost:8080/v1/graphql'));
-
   if(!headers['x-sushiapp-secret-key'] ||
       headers['x-sushiapp-secret-key'] !== 'mysushiappsecretkey'){
+
     return {
       statusCode: 403,
       body: JSON.stringify({ message: "'x-sushiapp-secret-key' is missing or value is invalid"}),
     };
   }
 
+  const input: AdminRegisterInput = JSON.parse(body!).input.admin;
 
-    const password = crypto
-    .pbkdf2Sync(input.password, 'mygreatsaltsecret', 1000, 64, 'sha512')
-    .toString('hex');
+  const password = hashPassword(input.password)
 
-  const data = await sdk.InsertAdmin({
+  const data = await api.InsertAdmin({
     username: input.username,
     password,
+  },{
+    'x-hasura-admin-secret' : 'myadminsecretkey'
   });
 
-  const accessToken = jwt.sign(
-    {
-      'https://hasura.io/jwt/claims': {
-        'x-hasura-allowed-roles': ['admin'],
-        'x-hasura-default-role': 'admin',
-        'x-hasura-user-id': data.insert_admin_one?.id,
-      },
-    },
-    'mygreatjwtsecret'
-  );
+  const accessToken = sighToken(data.insert_admin_one?.id);
 
   return {
     statusCode: 200,
