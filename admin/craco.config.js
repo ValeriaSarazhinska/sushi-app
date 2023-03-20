@@ -1,14 +1,14 @@
 const {CracoAliasPlugin} = require('react-app-alias')
-const loaderWebpackConfig = require('./craco.webpack')
+const loadWebpackConfig = require('./craco.webpack')
 
 module.exports = {
     plugins: [
         {
             plugin: CracoAliasPlugin,
-            options: {}
+            options: {},
         },
         {
-        plugin: loaderWebpackConfig,
+        plugin: loadWebpackConfig,
         }
     ]
 }

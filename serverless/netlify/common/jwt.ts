@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import * as  jwt from "jsonwebtoken";
 
 export const  sighToken = (id: string) => {
     return jwt.sign(
