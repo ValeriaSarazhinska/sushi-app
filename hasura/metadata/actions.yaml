@@ -21,6 +21,11 @@ actions:
         - name: x-sushiapp-secret-key
           value: mysushiappsecretkey
     comment: Admin registration
+  - name: cloudinarySignature
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:8888/.netlify/functions/cloud-signature
+      forward_client_headers: true
 custom_types:
   enums: []
   input_objects:
@@ -30,4 +35,5 @@ custom_types:
     - name: AdminRegisterOutput
     - name: AdminLoginOutput
     - name: AdminGetMeOutput
+    - name: cloudinarySignatureOutput
   scalars: []
