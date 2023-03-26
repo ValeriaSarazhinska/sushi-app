@@ -1,9 +1,9 @@
 import {getTokenData, HASURA_CLAIMS, HASURA_USER_ID} from "./jwt";
 import {api} from "./api";
 import {GetAdminByIdQuery} from "./sdk";
+import {config} from "../core/config";
 
-export const getAdminFromHeaders = async (
-    headers): Promise<GetAdminByIdQuery> => {
+export const getAdminFromHeaders = async (headers): Promise<GetAdminByIdQuery> => {
     const authHeader = headers['authorization']
 
     if(!authHeader){
@@ -15,12 +15,13 @@ export const getAdminFromHeaders = async (
         )
     }
     const [_, authToken] = authHeader.split(' ')
+
     const adminObj = getTokenData(authToken)
     const adminId = adminObj[HASURA_CLAIMS][HASURA_USER_ID]
 
     const data = await api.GetAdminById(
         {id: adminId},{
-        'x-hasura-admin-secret': 'myadminsecretkey'
+            'x-hasura-admin-secret': config.hasuraAdminSecret
     })
     return data
 }

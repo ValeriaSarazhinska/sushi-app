@@ -823,131 +823,48 @@ export type Uuid_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['uuid']>>;
 };
 
-export type AdminGetMeQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetMenuQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AdminGetMeQuery = { __typename?: 'query_root', adminGetMe?: { __typename?: 'AdminGetMeOutput', id: string, username: string } | null };
-
-export type AdminLoginQueryVariables = Exact<{
-  password: Scalars['String'];
-  username: Scalars['String'];
-}>;
+export type GetMenuQuery = { __typename?: 'query_root', menu: Array<{ __typename?: 'menu', id: any, image: string, ingredients: string, price: any, title: string, weight: any }> };
 
 
-export type AdminLoginQuery = { __typename?: 'query_root', adminLogin?: { __typename?: 'AdminLoginOutput', accessToken: string } | null };
-
-export type CloudinarySignatureQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type CloudinarySignatureQuery = { __typename?: 'query_root', cloudinarySignature?: { __typename?: 'cloudinarySignatureOutput', apiKey: string, cloudName: string, publicId: string, signature: string, timestamp: number } | null };
-
-
-export const AdminGetMeDocument = gql`
-    query AdminGetMe {
-  adminGetMe {
+export const GetMenuDocument = gql`
+    query GetMenu {
+  menu {
     id
-    username
+    image
+    ingredients
+    price
+    title
+    weight
   }
 }
     `;
 
 /**
- * __useAdminGetMeQuery__
+ * __useGetMenuQuery__
  *
- * To run a query within a React component, call `useAdminGetMeQuery` and pass it any options that fit your needs.
- * When your component renders, `useAdminGetMeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetMenuQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMenuQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useAdminGetMeQuery({
+ * const { data, loading, error } = useGetMenuQuery({
  *   variables: {
  *   },
  * });
  */
-export function useAdminGetMeQuery(baseOptions?: Apollo.QueryHookOptions<AdminGetMeQuery, AdminGetMeQueryVariables>) {
+export function useGetMenuQuery(baseOptions?: Apollo.QueryHookOptions<GetMenuQuery, GetMenuQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AdminGetMeQuery, AdminGetMeQueryVariables>(AdminGetMeDocument, options);
+        return Apollo.useQuery<GetMenuQuery, GetMenuQueryVariables>(GetMenuDocument, options);
       }
-export function useAdminGetMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AdminGetMeQuery, AdminGetMeQueryVariables>) {
+export function useGetMenuLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMenuQuery, GetMenuQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AdminGetMeQuery, AdminGetMeQueryVariables>(AdminGetMeDocument, options);
+          return Apollo.useLazyQuery<GetMenuQuery, GetMenuQueryVariables>(GetMenuDocument, options);
         }
-export type AdminGetMeQueryHookResult = ReturnType<typeof useAdminGetMeQuery>;
-export type AdminGetMeLazyQueryHookResult = ReturnType<typeof useAdminGetMeLazyQuery>;
-export type AdminGetMeQueryResult = Apollo.QueryResult<AdminGetMeQuery, AdminGetMeQueryVariables>;
-export const AdminLoginDocument = gql`
-    query AdminLogin($password: String!, $username: String!) {
-  adminLogin(admin: {password: $password, username: $username}) {
-    accessToken
-  }
-}
-    `;
-
-/**
- * __useAdminLoginQuery__
- *
- * To run a query within a React component, call `useAdminLoginQuery` and pass it any options that fit your needs.
- * When your component renders, `useAdminLoginQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useAdminLoginQuery({
- *   variables: {
- *      password: // value for 'password'
- *      username: // value for 'username'
- *   },
- * });
- */
-export function useAdminLoginQuery(baseOptions: Apollo.QueryHookOptions<AdminLoginQuery, AdminLoginQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AdminLoginQuery, AdminLoginQueryVariables>(AdminLoginDocument, options);
-      }
-export function useAdminLoginLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AdminLoginQuery, AdminLoginQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AdminLoginQuery, AdminLoginQueryVariables>(AdminLoginDocument, options);
-        }
-export type AdminLoginQueryHookResult = ReturnType<typeof useAdminLoginQuery>;
-export type AdminLoginLazyQueryHookResult = ReturnType<typeof useAdminLoginLazyQuery>;
-export type AdminLoginQueryResult = Apollo.QueryResult<AdminLoginQuery, AdminLoginQueryVariables>;
-export const CloudinarySignatureDocument = gql`
-    query CloudinarySignature {
-  cloudinarySignature {
-    apiKey
-    cloudName
-    publicId
-    signature
-    timestamp
-  }
-}
-    `;
-
-/**
- * __useCloudinarySignatureQuery__
- *
- * To run a query within a React component, call `useCloudinarySignatureQuery` and pass it any options that fit your needs.
- * When your component renders, `useCloudinarySignatureQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useCloudinarySignatureQuery({
- *   variables: {
- *   },
- * });
- */
-export function useCloudinarySignatureQuery(baseOptions?: Apollo.QueryHookOptions<CloudinarySignatureQuery, CloudinarySignatureQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CloudinarySignatureQuery, CloudinarySignatureQueryVariables>(CloudinarySignatureDocument, options);
-      }
-export function useCloudinarySignatureLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CloudinarySignatureQuery, CloudinarySignatureQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CloudinarySignatureQuery, CloudinarySignatureQueryVariables>(CloudinarySignatureDocument, options);
-        }
-export type CloudinarySignatureQueryHookResult = ReturnType<typeof useCloudinarySignatureQuery>;
-export type CloudinarySignatureLazyQueryHookResult = ReturnType<typeof useCloudinarySignatureLazyQuery>;
-export type CloudinarySignatureQueryResult = Apollo.QueryResult<CloudinarySignatureQuery, CloudinarySignatureQueryVariables>;
+export type GetMenuQueryHookResult = ReturnType<typeof useGetMenuQuery>;
+export type GetMenuLazyQueryHookResult = ReturnType<typeof useGetMenuLazyQuery>;
+export type GetMenuQueryResult = Apollo.QueryResult<GetMenuQuery, GetMenuQueryVariables>;

@@ -2,21 +2,22 @@ import {Handler} from '@netlify/functions';
 import {AdminLoginInput} from '../common/sdk';
 import {api} from "../common/api";
 import {hashPassword} from "../common/password";
-import {sighToken} from "../common/jwt";
+import {signToken} from "../common/jwt";
+import {config} from "../core/config";
 
 const invalidUserOrPassword = {
     statusCode: 404,
     body: JSON.stringify({message: 'User not found or password invalid'}),
-
 }
 
 const handler: Handler = async (event, context) => {
     const {body} = event;
-
+    console.log("###", body)
     const input: AdminLoginInput = JSON.parse(body!).input.admin;
+
     const data = await api.GetAdminByUsername(
         {username: input.username},
-        {'x-hasura-admin-secret': 'myadminsecretkey'});
+        {'x-hasura-admin-secret': config.hasuraAdminSecret});
 
     if (data.admin.length === 0) {
         return invalidUserOrPassword;
@@ -26,8 +27,8 @@ const handler: Handler = async (event, context) => {
     if (hashedPassword !== data.admin[0].password) {
         return invalidUserOrPassword;
     }
-const accessToken = sighToken(data.admin[0].id);
-
+    const accessToken = signToken(data.admin[0].id);
+    console.log("!!!!", accessToken)
     return {
         statusCode: 200,
         body: JSON.stringify({accessToken}),

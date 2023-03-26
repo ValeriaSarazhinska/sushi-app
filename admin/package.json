@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.10",
+    "@cloudinary/react": "^1.4.2",
+    "@cloudinary/url-gen": "1.8.0",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/material": "^5.9.3",
@@ -14,12 +16,13 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "axios": "^1.3.4",
     "graphql": "^16.5.0",
     "ra-data-hasura": "^0.5.2",
     "ra-i18n-polyglot": "^4.8.4",
     "ra-language-ukrainian": "^2.5.0",
     "react": "^18.2.0",
-    "react-admin": "^4.2.6",
+    "react-admin": "^4.4.3",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.4.2",
@@ -29,12 +32,24 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen": "graphql-codegen --config codegen.yml",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -54,7 +69,23 @@
     "@graphql-codegen/cli": "^3.2.2",
     "@graphql-codegen/typescript": "^3.0.2",
     "@graphql-codegen/typescript-operations": "^3.0.2",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/node-logger": "^6.5.16",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "graphql-tag": "^2.12.6",
-    "react-app-alias": "^2.2.2"
+    "prop-types": "^15.8.1",
+    "react-app-alias": "^2.2.2",
+    "storybook": "^6.5.16",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
+    "webpack": "^5.76.2"
   }
 }

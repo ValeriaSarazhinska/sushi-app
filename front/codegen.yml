@@ -1,8 +1,5 @@
   overwrite: true
-  schema:
-    - http://localhost:8080/v1/graphql:
-        headers:
-          x-hasura-admin-secret: myadminsecretkey
+  schema: http://localhost:8080/v1/graphql
   documents: src/core/graphql/*.gql
   generates:
     src/core/types.ts:

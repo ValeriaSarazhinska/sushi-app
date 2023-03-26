@@ -1,13 +1,16 @@
 import {Handler} from '@netlify/functions';
 import {hashPassword} from "../common/password";
-import {sighToken} from "../common/jwt";
+import {signToken} from "../common/jwt";
 import {api} from "../common/api";
 import {AdminRegisterInput} from '../common/sdk'
+import {config} from "../core/config";
 
 const handler: Handler = async (event, context) => {
   const { body, headers } = event;
+
   if(!headers['x-sushiapp-secret-key'] ||
-      headers['x-sushiapp-secret-key'] !== 'mysushiappsecretkey'){
+      headers['x-sushiapp-secret-key'] !== config.hasuraSushiappSecret){
+    console.log(headers)
 
     return {
       statusCode: 403,
@@ -23,10 +26,10 @@ const handler: Handler = async (event, context) => {
     username: input.username,
     password,
   },{
-    'x-hasura-admin-secret' : 'myadminsecretkey'
+    'x-hasura-admin-secret' : config.hasuraAdminSecret
   });
 
-  const accessToken = sighToken(data.insert_admin_one?.id);
+  const accessToken = signToken(data.insert_admin_one?.id);
 
   return {
     statusCode: 200,
