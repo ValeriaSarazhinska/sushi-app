@@ -29,7 +29,7 @@ export const CloudinaryInputUI: FC<CloudinaryInputUIProps> = ({label, disabled, 
 
     console.log(image, value)
 
-    image.addTransformation('w_384,h_240,dpr_2.0');
+    image.addTransformation('c_pad,w_384,h_240,dpr_2.0');
     return (
         <div style={{marginBottom: 20}}>
             <input
