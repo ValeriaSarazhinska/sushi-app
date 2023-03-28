@@ -1,3 +1,4 @@
 - "!include public_admin.yaml"
 - "!include public_categories.yaml"
 - "!include public_menu.yaml"
+- "!include public_settings.yaml"
