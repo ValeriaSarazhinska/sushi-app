@@ -13,7 +13,10 @@ import {Menu} from "@app/core/types";
 
 const filters = [
     <TextInput source="Title" label="Пошук по назві"/>,
-    <ReferenceInput source="category_id" reference="categories">
+    <ReferenceInput
+        source="category_id"
+        reference="categories"
+        label="Пошук по категорії">
         <SelectInput optionText="title" label="Категорія"/>
     </ReferenceInput>
 ]
