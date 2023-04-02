@@ -1,7 +1,7 @@
 import {CloudinaryInputUI} from "@app/common/components/cloudinary-input-ui/cloudinary-input-ui.component";
 import {FC} from "react";
 import {InputProps, useInput, useNotify} from "react-admin";
-import {useCloudinarySignatureQuery} from "@app/core/types";
+import {useCloudinarySignatureQuery, useGetSettingsQuery} from "@app/core/types";
 import axios, {AxiosError} from 'axios'
 import {CloudinaryUploadDTO} from "@app/common/components/cloudinary-input/cloudinary-upload.dto";
 
@@ -11,6 +11,8 @@ export const CloudinaryInput: FC<InputProps> = (props) => {
     const {data: cloudSignature, loading} = useCloudinarySignatureQuery({
         fetchPolicy:'network-only'
     })
+    const {data:settings} = useGetSettingsQuery({fetchPolicy:'cache-only'})
+
     const notify = useNotify();
 
     const {field: {onChange, value}} = useInput(props)
@@ -39,6 +41,10 @@ export const CloudinaryInput: FC<InputProps> = (props) => {
         }
         onChange(data!.public_id)
     }
+    const {
+        field:{value:categoryId},
+    } = useInput({source:'categoryId'})
+    const isCocktailsCategories = categoryId === settings?.settings[0].cocktails_category
 
     return (
     <CloudinaryInputUI
@@ -46,5 +52,6 @@ export const CloudinaryInput: FC<InputProps> = (props) => {
         value={value}
         disabled={loading}
         onImageSelected={onImageSelected}
+        fitImage={isCocktailsCategories}
     />)
 }
