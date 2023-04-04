@@ -4,18 +4,15 @@ import {signToken} from "../common/jwt";
 import {api} from "../common/api";
 import {AdminRegisterInput} from '../common/sdk'
 import {config} from "../core/config";
+import {verifyHasura} from "../common/verifyHasura";
 
 const handler: Handler = async (event, context) => {
   const { body, headers } = event;
 
-  if(!headers['x-sushiapp-secret-key'] ||
-      headers['x-sushiapp-secret-key'] !== config.hasuraSushiappSecret){
-    console.log(headers)
-
-    return {
-      statusCode: 403,
-      body: JSON.stringify({ message: "'x-sushiapp-secret-key' is missing or value is invalid"}),
-    };
+  try {
+    verifyHasura(headers)
+  } catch (error) {
+    return JSON.parse(error.message)
   }
 
   const input: AdminRegisterInput = JSON.parse(body!).input.admin;

@@ -32,6 +32,8 @@ services:
        HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
        HASURA_GRAPHQL_UNAUTHORIZED_ROLE: guest
        HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS256", "key": "mygreatjwtsecret"}'
+       HASURA_ACTIONS_ENDPOINT: http://host.docker.internal:8888/.netlify/functions
+       HASURA_SUSHIAPP_SECRET: mysushiappsecretkey
 volumes:
   db_data:
 

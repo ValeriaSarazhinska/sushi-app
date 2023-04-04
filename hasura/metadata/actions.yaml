@@ -19,7 +19,7 @@ actions:
       forward_client_headers: true
       headers:
         - name: x-sushiapp-secret-key
-          value: mysushiappsecretkey
+          value_from_env: mysushiappsecretkey
     comment: Admin registration
   - name: cloudinarySignature
     definition:
