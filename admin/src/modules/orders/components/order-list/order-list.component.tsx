@@ -6,7 +6,8 @@ import {
     ReferenceField,
     ReferenceInput,
     SelectInput,
-    TextField
+    TextField,
+    DateField
 } from 'react-admin';
 import {Orders} from "@app/core/types";
 
@@ -21,7 +22,10 @@ const filters = [<ReferenceInput
 
 </ReferenceInput>]
 export const OrderList = () => (
-    <List exporter={false} filters={filters}>
+    <List
+        exporter={false}
+        filters={filters}
+    sort={{field:'created_at', order:'DESC'}}>
         <Datagrid rowClick="show" bulkActionButtons={false}>
             <TextField source="client_address" label="Адреса"/>
             <TextField source="client_name" label="Ім'я"/>
@@ -33,8 +37,14 @@ export const OrderList = () => (
                 link={false}>
                 <ChipField source="label"/>
             </ReferenceField>
+            <DateField
+                source="created_at"
+                label ="Створено"
+                showTime
+                options={{timeZone:'Europe/Kiev'}}/>
             <FunctionField
                 label="Сума"
+                source="sum"
                 render={(record: Orders) => `${record.sum} грн.`}/>
         </Datagrid>
     </List>
