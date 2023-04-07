@@ -4,18 +4,34 @@ import {api} from "../common/api";
 import {config} from "../core/config";
 import {verifyHasura} from "../common/verifyHasura";
 import {CreateFakeOrderMutationVariables} from "../common/sdk";
+import {DateTime} from "luxon";
 
 const handler: Handler = async (event, context) => {
     const {headers, queryStringParameters} = event
-    const {amount:amountRaw = '1', recent:recentRaw = '0'} = queryStringParameters
+    const {
+        amount: amountRaw = '1',
+        recent: recentRaw = '0',
+        forceCreate: forceCreateRaw = 'false'
+    } = queryStringParameters
 
     const amount = Number(amountRaw)
     const recent = Number(recentRaw)
+    const forceCreate = forceCreateRaw === 'true'
 
     try {
         verifyHasura(headers)
     } catch (error) {
         return JSON.parse(error.message)
+    }
+
+    const currentHour = DateTime.now().setZone('Europe/Kiev').hour
+    const isWorkingHours = currentHour >= 10 && currentHour <= 20
+
+    if (!isWorkingHours && !forceCreate) {
+        return {
+            statusCode: 200,
+            body: JSON.stringify({status: 'not working hours'})
+        }
     }
 
     const categories = await api.GetCategories()
@@ -28,11 +44,11 @@ const handler: Handler = async (event, context) => {
     const secondGroupLength = menuItems.secondGroup.length
 
     for (let i = 0; i < amount; i++) {
-        const fakeData:CreateFakeOrderMutationVariables = {
+        const fakeData: CreateFakeOrderMutationVariables = {
             client_address: faker.address.streetAddress(true),
             client_name: faker.name.fullName(),
             client_phone: faker.phone.number("+380#######"),
-            created_at:new Date()
+            created_at: new Date()
         }
         if (recent !== 0) {
             fakeData.created_at = faker.date.recent(recent)
